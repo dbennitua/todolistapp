@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart';
-import 'route/appRoutes.dart';
+import 'routes/appRoutes.dart';
 import 'homeScreen/homeScreen.dart';
 
+//Global key to manage snack-bars and notifications across the app
 var globalMessengerKey = GlobalKey<ScaffoldMessengerState>();
 void main(){
-  WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  WidgetsFlutterBinding.ensureInitialized(); //Ensuring all flutter widgets are initialized before running my app
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]); //Locking my app orientation to portrait mode
   runApp(MyApp());
 }
 
@@ -21,8 +22,9 @@ class MyApp extends StatelessWidget{
           title: 'To Do List',
           debugShowCheckedModeBanner: false,
           initialRoute: appRoutes.initialRoute,
-          routes: appRoutes().routes,
+          routes: appRoutes.routes,
           builder: (context,child){
+            //using this media-query to ensure a consistent text scaling across devices to ensure a consistent ui look
             return MediaQuery(
               data: MediaQuery.of(context).copyWith(
                 textScaler: TextScaler.linear(1.0)
