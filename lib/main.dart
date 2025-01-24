@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/scheduler.dart';
 import 'routes/appRoutes.dart';
 import 'homeScreen/homeScreen.dart';
+import 'package:todolistapp/utils/utils.dart';
 
 //Global key to manage snack-bars and notifications across the app
 var globalMessengerKey = GlobalKey<ScaffoldMessengerState>();
